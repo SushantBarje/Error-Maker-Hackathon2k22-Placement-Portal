@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dashbord</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    </style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2><span class="lab la-accusoft"></span><span> TPO Dashboard</span></h2>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="admindash.php" class="active"><span class="fa fa-fw fa-home"></span>
+                        <span>Home</span></a>
+                </li>
+                <li>
+                    <a href="adstudent1.html"><span class="las la-users"></span>
+                        <span>Students</span></a>
+                </li>
+                <li>
+                    <a href="adcompany.html"><span class="las la-users"></span>
+                        <span>Company</span></a>
+                </li>
+                <li>
+                    <a href="ViewPlacement.html"><span class="las la-shopping-bag"></span>
+                        <span>View Placement</span></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+                Sinhgad Placement Portal
+            </h2>
+            <div class="user-wrapper">
+                <div>
+                    <h4></h4>
+                    <small>
+                        <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn">R</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="../logout.php"><i class="fa fa-fw fa-user"></i>Logout</a>
+                            </div>
+                    </small>
+                    <script>
+                        /* When the user clicks on the button, 
+                        toggle between hiding and showing the dropdown content */
+                        function myFunction() {
+                            document.getElementById("myDropdown").classList.toggle("show");
+                        }
+
+                        // Close the dropdown if the user clicks outside of it
+                        window.onclick = function (event) {
+                            if (!event.target.matches('.dropbtn')) {
+                                var dropdowns = document.getElementsByClassName("dropdown-content");
+                                var i;
+                                for (i = 0; i < dropdowns.length; i++) {
+                                    var openDropdown = dropdowns[i];
+                                    if (openDropdown.classList.contains('show')) {
+                                        openDropdown.classList.remove('show');
+                                    }
+                                }
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+    </div>
+    </header>
+    <main>
+        <div class="cards">
+            <div class="container">
+                <br><br>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#addModal">Add</button>
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#bulkUploadModal">Upload
+                    File</button>
+
+                <div class="modal fade" id="bulkUploadModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form id="add-bulk-student" method="post" enctype="multipart/form-data">
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="class" class="mr-sm-2">Class</label>
+                                        <select class="form-control form-control-sm" name="class" id="class">
+                                            <option value=" "> </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fileupload">Upload File</label>
+                                        <input type="file" name="file" class="form-control-file border" id="fileupload"
+                                            aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" name="upload" class="btn btn-primary">Add</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- The Modal -->
+                <div class="modal" id="addModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h2>Add Students Details</h2>
+
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form id="add-student" class="modal-body">
+                                    <div class="form-group">
+                                        <label for="prn"><b>Student ID</b></label>
+                                        <input type="text" placeholder="Enter ID" name="id"
+                                            class="form-control form-control-sm" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="prn"><b>PRN NO</b></label>
+                                        <input type="number" placeholder="Enter PRN" name="prn"
+                                            class="form-control form-control-sm" required>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-4">
+                                            <label for="fname"><b>First Name</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="Fisrst Name" name="fname" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="mname"><b>Middle Name</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="Middle Name" name="mname" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="lname"><b>Last Name</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="Last Name" name="lname" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="gender"><b>Gender</b></label>
+                                            <input type="text" class="form-control form-control-sm" placeholder="Gender"
+                                                name="gender" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="email"><b>Email</b></label>
+                                            <input type="text" class="form-control form-control-sm" placeholder="email"
+                                                name="email" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="Faname"><b>Father Name</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="father name" name="fathername" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="moname"><b>Mother Name</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="Mother Name" name="mothername" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="mobile"><b>Mobile No</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="Mobile no" name="mobileno" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="department"><b>Department</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="department" name="department" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="class"><b>Class</b></label>
+                                            <input type="text" class="form-control form-control-sm" placeholder="class"
+                                                name="class" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="adhar"><b>Adhar No</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="adhar no" name="adhar no" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="pan"><b>Pan No</b></label>
+                                            <input type="text" class="form-control form-control-sm" placeholder="panno"
+                                                name="panno" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="10th"><b>10th Score</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="10th score" name="10th score" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="12th"><b>12th score/Diploma</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="12th score/Diploma" name="2th score/Diploma" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="degree"><b>Degree aggregate </b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="degree aggregate" name="degree aggregate" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="backlog"><b>Backlog</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="backlog" name="backlog" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="gap"><b>Gap</b></label>
+                                            <input type="text" class="form-control form-control-sm" placeholder="gap"
+                                                name="gap" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="certificate"><b>Certificates</b></label>
+                                            <input type="text" placeholder="certificates" name="certificate"
+                                                class="form-control form-control-sm" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="project"><b>Projects</b></label>
+                                            <input type="text" placeholder="projects" name="project"
+                                                class="form-control form-control-sm" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="achievement"><b>Achievements</b></label>
+                                            <input type="text" placeholder="achievement" name="achievement"
+                                                class="form-control form-control-sm" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="work"><b>Work Experience</b></label>
+                                            <input type="text" placeholder="work experience" name="workexperience"
+                                                class="form-control form-control-sm" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="technical"><b>Technical Skills</b></label>
+                                            <input type="text" placeholder="technical skills" name="technicalskill"
+                                                class="form-control form-control-sm" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-5">
+                                            <label for="roll_no"><b>Roll No.</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="Roll No" name="roll_no" required>
+                                        </div>
+                                        <div class="form-group col-sm-7">
+                                            <label for="class-year"><b>Class</b></label>
+                                            <select name="class_year" class="form-control form-control-sm"
+                                                id="class_year">
+                                                <option value=" "> </option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-6">
+                                            <label for="s_div"><b>Division</b></label>
+                                            <select name="s_div" class="form-control form-control-sm" id="s_div">
+
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="s_batch"><b>Batch</b></label>
+                                            <select name="s_batch" class="form-control form-control-sm" id="s_batch">
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success">ADD</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View Details Modal -->
+                <div class="modal" id="viewModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h2>View Students Details</h2>
+
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form id="add-student" class="modal-body">
+                                    <div class="form-group">
+                                        <label for="prn"><b>Student ID</b></label>
+                                        <input type="text" placeholder="Enter ID" name="id"
+                                            class="form-control form-control-sm" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="prn"><b>PRN NO</b></label>
+                                        <input type="number" placeholder="Enter PRN" name="prn"
+                                            class="form-control form-control-sm" required>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-4">
+                                            <label for="fname"><b>First Name</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="Fisrst Name" name="fname" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="mname"><b>Middle Name</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="Middle Name" name="mname" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="lname"><b>Last Name</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="Last Name" name="lname" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="gender"><b>Gender</b></label>
+                                            <input type="text" class="form-control form-control-sm" placeholder="Gender"
+                                                name="gender" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="email"><b>Email</b></label>
+                                            <input type="text" class="form-control form-control-sm" placeholder="email"
+                                                name="email" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="Faname"><b>Father Name</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="father name" name="fathername" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="moname"><b>Mother Name</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="Mother Name" name="mothername" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="mobile"><b>Mobile No</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="Mobile no" name="mobileno" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="department"><b>Department</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="department" name="department" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="class"><b>Class</b></label>
+                                            <input type="text" class="form-control form-control-sm" placeholder="class"
+                                                name="class" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="adhar"><b>Adhar No</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="adhar no" name="adhar no" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="pan"><b>Pan No</b></label>
+                                            <input type="text" class="form-control form-control-sm" placeholder="panno"
+                                                name="panno" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="10th"><b>10th Score</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="10th score" name="10th score" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="12th"><b>12th score/Diploma</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="12th score/Diploma" name="2th score/Diploma" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="degree"><b>Degree aggregate </b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="degree aggregate" name="degree aggregate" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="backlog"><b>Backlog</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="backlog" name="backlog" required>
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="gap"><b>Gap</b></label>
+                                            <input type="text" class="form-control form-control-sm" placeholder="gap"
+                                                name="gap" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="certificate"><b>Certificates</b></label>
+                                            <input type="text" placeholder="certificates" name="certificate"
+                                                class="form-control form-control-sm" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="project"><b>Projects</b></label>
+                                            <input type="text" placeholder="projects" name="project"
+                                                class="form-control form-control-sm" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="achievement"><b>Achievements</b></label>
+                                            <input type="text" placeholder="achievement" name="achievement"
+                                                class="form-control form-control-sm" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="work"><b>Work Experience</b></label>
+                                            <input type="text" placeholder="work experience" name="workexperience"
+                                                class="form-control form-control-sm" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="technical"><b>Technical Skills</b></label>
+                                            <input type="text" placeholder="technical skills" name="technicalskill"
+                                                class="form-control form-control-sm" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-5">
+                                            <label for="roll_no"><b>Roll No.</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="Roll No" name="roll_no" required>
+                                        </div>
+                                        <div class="form-group col-sm-7">
+                                            <label for="class-year"><b>Class</b></label>
+                                            <select name="class_year" class="form-control form-control-sm"
+                                                id="class_year">
+                                                <option value=" "> </option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-6">
+                                            <label for="s_div"><b>Division</b></label>
+                                            <select name="s_div" class="form-control form-control-sm" id="s_div">
+
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="s_batch"><b>Batch</b></label>
+                                            <select name="s_batch" class="form-control form-control-sm" id="s_batch">
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                       
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table id="student-table" class="table table-sm table-bordered table-hover cell-border nowrap"
+                cellspacing="0" width="100%">
+                <thead>
+                    <tr border="4px">
+                        <th>Student ID</th>
+                        <th>PRN</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile No</th>
+                        <th>Class </th>
+                        <th>Department</th>
+                        <th>View More</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>
+                        <!-- view details -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#viewModal">View
+                            </button>
+                        </div>
+                    </td>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="modal" id="editStudentModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h2>Edit Students Details</h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form id="edit-student" class="modal-body">
+                            <div class="form-group">
+                                <label for="prn-no"><b>PRN NO</b></label>
+                                <input type="text" placeholder="Enter PRN" id="prn-no" name="prn"
+                                    class="form-control form-control-sm prn-no" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-4">
+                                    <label for="fname"><b>First Name</b></label>
+                                    <input type="text" class="form-control form-control-sm fname" id="fname"
+                                        placeholder="Fisrst Name" name="fname" required>
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="mname"><b>Middle Name</b></label>
+                                    <input type="text" class="form-control form-control-sm mname" id="mname"
+                                        placeholder="Middle Name" name="mname" required>
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="lname"><b>Last Name</b></label>
+                                    <input type="text" class="form-control form-control-sm lname" id="lname"
+                                        placeholder="Last Name" name="lname" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-5">
+                                    <label for="roll_no"><b>Roll No.</b></label>
+                                    <input type="text" class="form-control form-control-sm roll" id="roll"
+                                        placeholder="Roll No" name="roll_no" required>
+                                </div>
+                                <div class="form-group col-sm-7">
+                                    <label for="year"><b>Class</b></label>
+                                    <select name="class_year" class="form-control form-control-sm year" id="year">
+                                        <option value=" "> </option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-6">
+                                    <label for="s_div"><b>Division</b></label>
+                                    <select name="s_div" class="form-control form-control-sm div" id="div">
+
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <label for="s_batch"><b>Batch</b></label>
+                                    <select name="s_batch" class="form-control form-control-sm batch" id="batch">
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+
+                                <button type="submit" class="btn btn-success">ADD</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
