@@ -103,6 +103,88 @@ input[type="number"] {
   margin-top: 20px;
 }
 
+.marks {
+  margin-left: 100px;
+}
+
+.marks {
+  margin-top: 10px;
+}
+
+.marks input {
+  float: right;
+  margin-right: 60px;
+}
+
+/* details tab */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table thead tr th {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600px;
+  letter-spacing: 0.35px;
+  opacity: 1;
+  vertical-align: top;
+  background-color: #ccc;
+  /* border: 1px solid #aaa; */
+}
+
+table tbody tr td {
+  font-size: 14px;
+  letter-spacing: 0.35px;
+  font-weight: normal;
+  padding: 8px;
+  background-color: whitesmoke;
+  text-align: center;
+  /* border: 1px solid #ccc; */
+}
+
+.btn {
+  color: white;
+  padding: 12px 16px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  color: black;
+  font-weight: bold;
+}
+
+.submitbtn {
+  background-color: green;
+  border: none;
+  cursor: pointer;
+  color: black;
+  width: 25%;
+  padding: 14px 18px;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 350px;
+}
+
+.r {
+  background-color: red;
+}
+.g {
+  background-color: green;
+}
+
+.y {
+  background-color: yellow;
+}
+
+.end {
+  border: 1px solid rgb(235, 122, 122);
+}
+
 @media only screen and (max-device-width: 768px) {
   .container {
     margin-left: 0px;
