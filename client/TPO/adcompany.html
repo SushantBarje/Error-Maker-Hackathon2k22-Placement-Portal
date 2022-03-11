@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dashbord</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    </style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2><span class="lab la-accusoft"></span><span> TPO Dashboard</span></h2>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="admindash.php" class="active"><span class="fa fa-fw fa-home"></span>
+                        <span>Home</span></a>
+                </li>
+                <li>
+                    <a href="adstudent1.html"><span class="las la-users"></span>
+                        <span>Students</span></a>
+                </li>
+                <li>
+                    <a href="adcompany.html"><span class="las la-users"></span>
+                        <span>Company</span></a>
+                </li>
+                <li>
+                    <a href="ViewPlacement.html"><span class="las la-shopping-bag"></span>
+                        <span>View Placement</span></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+                Sinhgad Placement Portal
+            </h2>
+            <div class="user-wrapper">
+                <div>
+                    <h4></h4>
+                    <small>
+                        <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn">R</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="../logout.php"><i class="fa fa-fw fa-user"></i>Logout</a>
+                            </div>
+                    </small>
+                    <script>
+                        /* When the user clicks on the button, 
+                        toggle between hiding and showing the dropdown content */
+                        function myFunction() {
+                            document.getElementById("myDropdown").classList.toggle("show");
+                        }
+
+                        // Close the dropdown if the user clicks outside of it
+                        window.onclick = function (event) {
+                            if (!event.target.matches('.dropbtn')) {
+                                var dropdowns = document.getElementsByClassName("dropdown-content");
+                                var i;
+                                for (i = 0; i < dropdowns.length; i++) {
+                                    var openDropdown = dropdowns[i];
+                                    if (openDropdown.classList.contains('show')) {
+                                        openDropdown.classList.remove('show');
+                                    }
+                                }
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+    </div>
+    </header>
+    <main>
+        <br><br>
+        <h2 class="head mb-3">Company</h2>
+        <div class="cards">
+            <div class="container">
+                <!-- Button to Open the Modal -->
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
+                    + Add Company
+                </button>
+                <!-- The Modal -->
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h2>Add Company</h2>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form id="dpt-form" class="modal-body">
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>company Name</b></label>
+                                            <input type="text" id="dptname" class="form-control form-control-sm"
+                                                placeholder="company Name" name="dptname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>Company ID</b></label>
+                                            <input type="number" id="dptname" class="form-control form-control-sm"
+                                                placeholder="id" name="dptname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>Role</b></label>
+                                            <input type="text" id="dptname" class="form-control form-control-sm"
+                                                placeholder="role Name" name="dptname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>CTC</b></label>
+                                            <input type="text" id="dptname" class="form-control form-control-sm"
+                                                placeholder="ctc" name="dptname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>Location</b></label>
+                                            <input type="text" id="dptname" class="form-control form-control-sm"
+                                                placeholder="location" name="dptname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>Criteria</b></label>
+                                            <input type="text" id="dptname" class="form-control form-control-sm"
+                                                placeholder="criteria" name="dptname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>Description</b></label>
+                                            <input type="text" id="dptname" class="form-control form-control-sm"
+                                                placeholder="discription" name="dptname">
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success">Add</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+                                    <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View More -->
+                <div class="modal" id="viewModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h2>View  Company Details</h2>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form id="dpt-form" class="modal-body">
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>company Name</b></label>
+                                            <input type="text" id="dptname" class="form-control form-control-sm"
+                                                placeholder="company Name" name="dptname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>Company ID</b></label>
+                                            <input type="number" id="dptname" class="form-control form-control-sm"
+                                                placeholder="id" name="dptname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>Role</b></label>
+                                            <input type="text" id="dptname" class="form-control form-control-sm"
+                                                placeholder="role Name" name="dptname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>CTC</b></label>
+                                            <input type="text" id="dptname" class="form-control form-control-sm"
+                                                placeholder="ctc" name="dptname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>Location</b></label>
+                                            <input type="text" id="dptname" class="form-control form-control-sm"
+                                                placeholder="location" name="dptname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>Criteria</b></label>
+                                            <input type="text" id="dptname" class="form-control form-control-sm"
+                                                placeholder="criteria" name="dptname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>Description</b></label>
+                                            <input type="text" id="dptname" class="form-control form-control-sm"
+                                                placeholder="discription" name="dptname">
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+                                    <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-sm table-bordered table-hover cell-border nowrap" cellspacing="0" width="100%"
+            id="dept-table">
+            <thead>
+                <tr>
+                    <th>Comapany Name</th>
+                    <th>Company ID</th>
+                    <th>Role</th>
+                    <th>CTC</th>
+                    <th>Location</th>
+                    <th>View More</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cognizant</td>
+                    <td>2</td>
+                    <td>ASE</td>
+                    <td>6LPA</td>
+                    <td>Pune</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#viewModal">View
+                    </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="modal" id="editModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h2>Edit Department</h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form id="edit-dept" class="modal-body">
+                            <label for="fname"><b>Department Name</b></label>
+                            <input type="text" id="modalinput" placeholder="Department Name" name="editdptname">
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">ADD</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                            <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
