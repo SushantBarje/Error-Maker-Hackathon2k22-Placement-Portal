@@ -2,21 +2,37 @@
   "name": "hackathon",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SushantBarje/Error-Maker-Hackathon2k22-Placement-Portal.git"
   },
-  "author": "",
+  "author": "Error Makers",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SushantBarje/Error-Maker-Hackathon2k22-Placement-Portal/issues"
   },
   "homepage": "https://github.com/SushantBarje/Error-Maker-Hackathon2k22-Placement-Portal#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "body-parser": "^1.19.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "debug": "^4.3.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-router": "0.0.1",
+    "express-session": "^1.17.2",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
