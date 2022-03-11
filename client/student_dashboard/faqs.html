@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashbord</title>
     <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/tab.css">
-    
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    </style>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <input type="checkbox" id="nav-toggle">
@@ -20,32 +26,45 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="admindash.php" class="active"><span class="fa fa-fw fa-home"></span>
-                    <span>Home</span></a>
+                    <a href="adminHeader.html" class="active"><span class="fa fa-fw fa-home"></span>
+                        <span>Home</span></a>
                 </li>
                 <li>
                     <a href="createProfile.html"><span class="las la-users"></span>
-                    <span>Create/Edit Profile</span></a>
+                        <span>Create/Edit Profile</span></a>
                 </li>
                 <li>
                     <a href="viewAnnouncement.html"><span class="las la-users"></span>
-                    <span>View Announcements</span></a>
+                        <span>View Announcements</span></a>
                 </li>
                 <li>
                     <a href="placementcell.html"><span class="las la-shopping-bag"></span>
                         <span>View Placement Cell</span></a>
                 </li>
                 <li>
+                    <a href="myapplied.html"><span class="las la-shopping-bag"></span>
+                        <span>My Applied History</span></a>
+                </li>
+                <li>
+                    <a href="practicequiz.html"><span class="las la-shopping-bag"></span>
+                        <span>Practice Quizes</span></a>
+                </li>
+                <li>
+                    <a href="training.html"><span class="las la-shopping-bag"></span>
+                        <span>Trainigs & Study materials</span></a>
+                </li>
+                
+                <li>
                     <a href="faqs.html"><span class="las la-shopping-bag"></span>
                         <span>FAQS</span></a>
                 </li>
 
-                
+
             </ul>
-        </div>
+        </div>  
     </div>
 
-    <div class="main-content" >
+    <div class="main-content">
         <header>
             <h2>
                 <label for="nav-toggle">
@@ -56,7 +75,7 @@
             <div class="user-wrapper">
                 <img src="../img/profile_img.jpg" width="30px" height="30px" alt="">
                 <div>
-                    <h4><?php echo $_SESSION['first_name']." ".$_SESSION['last_name']?></h4>
+                    
                     <small>
                         <div class="dropdown">
                             <button onclick="myFunction()" class="dropbtn">Admin</button>
@@ -89,87 +108,470 @@
             </div>
         </div>
     </header>
-    <ul class="tabs">
-      <li data-tab-target="#home" class="active tab">Personal Details</li>
-      <li data-tab-target="#pricing" class="tab">Educational Details</li>
-      <li data-tab-target="#about" class="tab">Other Details</li>
-    </ul>
-  
-    <div class="tab-content">
-      <div id="home" data-tab-content class="active">
-        <table class="center">
-          <form>  
-            <div class="container">  
-              <h2> Student Personal Details:</h2>  
-            <hr>  
-            <label> First Name </label>   
-          <input type="text" name="firstname" placeholder= "Firstname" size="15" required />   
-          <label> Middle Name </label>   
-          <input type="text" name="middlename" placeholder="Middlename" size="15" required />   
-          <label> Last Name </label>    
-          <input type="text" name="lastname" placeholder="Lastname" size="15"required />
-          <label> Mother's Name </label>    
-          <input type="text" name="mothername" placeholder="mothername" size="15"required />  
-          <!-- <label class="num1"> PRN No:</label>   <br>   -->
-          <input type="number" name="prn" placeholder="Enter university PRN" size="15"required /> 
-          <!-- <label for="adhaar" class="num">Adhaar No:</label>   -->
-          <input type="number" placeholder="Enter adhaar number" name="adhaar" class="num" required>    
-          <div> 
-            <label for="class" class="la">Class</label>
-              <select name="" id="">
-                <option value="ty">Third Year</option>
-                <option value="be">Last Year</option>
-              </select>
-              <br>
-             
-          <label for="course" class="la">   
-          Department  
-          </label>   
-            
-          <select>   
-          <option value="CSE">CSE</option>  
-          <option value="MECH">MECH</option>  
-          <option value="CIVIL">CIVIL</option>  
-          <option value="ENTC">ENTC</option>  
-          <option value="ELE">ELE</option>   
-          </select>  
-          </div>  
-          <div>  
-          <label for="gender">   
-          Gender 
-          </label>  
-          <input type="radio" value="Male" name="gender" checked > Male   
-          <input type="radio" value="Female" name="gender"> Female   
-          <input type="radio" value="Other" name="gender" > Other <br> 
-          <div class="dob">
-          <label > DOB </label> 
-          <input type="date" name="dob" placeholder="Enter date of birth" size="15"required /> 
+    <main>
+     
+        <br><br>
+        <h2 class="head mb-3">FAQ'S </h2>
+        <div class="cards">
+            <div class="container">
+                <!-- Button to Open the Modal -->
+                <!--<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
+                    + Add Company
+                </button> -->
+                <!-- The Modal -->
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h2>Add Company</h2>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form id="dpt-form" class="modal-body">
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>company Name</b></label>
+                                            <input type="text" id="dptname" class="form-control form-control-sm"
+                                                placeholder="company Name" name="dptname">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label for="fname"><b>company Name</b></label>
+                                            <input type="text" id="dptname" class="form-control form-control-sm"
+                                                placeholder="company Name" name="dptname">
+                                        </div>
+                                    </div>
+                                   
+                                   
+
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success">Add</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+                                    <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ1 -->
+                <div class="modal" id="faq1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h2>View  FAQ's Details</h2>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form id="dpt-form" class="modal-body">
+
+                                    
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <p>
+                                                <h4>When do I update my profile:</h4>
+                                                When I log in for the first time as Student<br>
+                                                When I get my Class results<br>
+                                                When I get new certification<br>
+                                                When I complete any project<br>
+                                                When there is any change in my personal details<br>
+
+                                                <h4>How do I update my profile:</h4>
+                                                Login as Student<br>
+                                                Click on Profile<br>
+                                                Enter Details in each segment<br>
+                                                Make sure you have filled in your UG, PG and Current Qualification<br>
+                                                Whenever you get result of any Class, you have to update the results<br>
+                                                Click on Submit<br>
+
+                                               <h4> My name does not appear in the list of my TPO:</h4>
+                                                Check if you have entered your Current Institute Name correctly<br>
+                                                Check if you have entered your Current Degree Name correctly<br>
+                                                Check if you have entered your UG/PG Name correctly<br>
+                                                Check if you have entered your Current Year of Passing correctly<br>
+                                                Check if your TPO has approved you<br>
+
+                                                <h4>When I click on Register For Company, it shows I am not eligible:</h4>
+                                                Check if you have entered your Current Institute Name correctly<br>
+                                                Check if you have entered your Current Degree Name correctly<br>
+                                                Check if you have entered your UG/PG Name correctly<br>
+                                                Check if you have entered your Current Year of Passing correctly<br>
+                                                Check if your TPO has approved you<br>
+
+                                            </p>
+                                        </div> 
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div><p></p> </div>
+                                    <div class="modal-footer">
+                                        
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div> 
+                                    <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+                                    
+
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ2 -->
+                <div class="modal" id="faq2">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h2>View  FAQ's Details</h2>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form id="dpt-form" class="modal-body">
+
+                                    
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <p>
+                                                
+                                                Login as Student<br>
+                                                Click on MyInbox->TPO Log<br>
+                                                To send message, click on Compose New Message<br>
+                                                Choose TPO<br>
+                                                To view message, click on + of the TPO name<br>
+                                                To Reply, click on Reply<br>
+
+                                                
+
+                                            </p>
+                                        </div> 
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div><p></p> </div>
+                                    <div class="modal-footer">
+                                        
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div> 
+                                    <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+                                    
+
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ3 -->
+                <div class="modal" id="faq3">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h2>View  FAQ's Details</h2>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form id="dpt-form" class="modal-body">
+
+                                    
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <p>
+                                                <h4>View Placement Calendar & Check Eligibility:</h4>
+                                                Login as Student<br>
+                                                Click on Placement Calendar<br>
+                                                Click on + of Company Name to see placement Calender<br>
+                                                Choose TPO<br>
+                                                Click on Check Eligibility to see if you are qualified<br>
+                                                To Reply, click on Reply<br>
+                                                   <br>
+                                                 <h4>Register for Company</h4>
+                                                Login as Student. Click on Placement Calendar<br>
+                                                Click on Register for Placement<br>
+                                                Click on Check Eligibility to see if you are qualified<br>
+                                                If you are not eligible, you can make special request<br>
+                                            </p>
+                                        </div> 
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            
+                                        </div>
+                                    </div>
+                                    <div><p></p> </div>
+                                    <div class="modal-footer">
+                                        
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div> 
+                                    <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+                                    
+
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ4 -->
+                <div class="modal" id="faq4">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h2>View  FAQ's Details</h2>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form id="dpt-form" class="modal-body">
+
+                                    
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <p>
+                                                <h4>View Placement Result</h4>
+                                                <br>
+                                                Login as Student<br>
+                                                Click on Placements<br>
+                                                Click on View Placement Results<br>
+                                                Select the company for which you want to see result<br>
+                                            </p>
+                                        </div> 
+                                    </div>
+                                  
+                                    <div><p></p> </div>
+                                    <div class="modal-footer">
+                                        
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div> 
+                                    <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+                                    
+
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ5 -->
+                <div class="modal" id="faq5">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h2>View  FAQ's Details</h2>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form id="dpt-form" class="modal-body">
+
+                                    
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <p>
+                                                <h4>Get Placement Related Tips & Guidelines:</h4><br>
+                                                Login as Student<br>
+                                                Click on Tips For Dream Job<br>
+                                            </p>
+                                        </div> 
+                                    </div>
+                                   
+                                    <div class="modal-footer">
+                                        
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div> 
+                                    <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+                                    
+
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
+        <table class="table table-sm table-bordered table-hover cell-border nowrap" cellspacing="0" width="100%"
+            id="dept-table">
+            <thead>
+                <tr>
+                    <th>Quetions</th>
+                    <th>View Ans</th>
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Maintain Your Profile</td>
+                    
+                    
+                    
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#faq1">View Ans
+                    </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Communicate With TPO</td>
+                    
+                   
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#faq2">View Ans
+                    </button> 
+                    </td>
+                </tr>
+                <td>View Placement Calendar & Check Eligibility</td>
+                    
+                   
+                <td>
+                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                    data-target="#faq3">View Ans
+                </button> 
+                </td>
+            </tr>
+        </tr>
+        <td>View Placement Result</td>
             
-          </div>       
-          <input type="text" name="phone" placeholder="phone no." size="10"/ required>   
-          <label for="address">Current Address</label>  
-          <textarea cols="80" rows="5" placeholder="Current Address" value="address" required>  
-          </textarea>  
-           <label for="email">Email</label>  
-           <input type="text" placeholder="Enter Email" name="email" required>  
-            
-              <label for="psw">Password</label>  
-              <input type="password" placeholder="Enter Password" name="psw" required>  
-            
-              <label for="psw-repeat">Re-type Password</label>  
-              <input type="password" placeholder="Retype Password" name="psw-repeat" required>  
-              <button type="submit" class="savebtn">Save</button>    
-          </form>  
+           
+        <td>
+            <button type="button" class="btn btn-primary" data-toggle="modal"
+            data-target="#faq4">View Ans
+        </button> 
+        </td>
+    </tr>
+</tr>
+<td>Get Placement Related Tips & Guidelines</td>
+    
+   
+<td>
+    <button type="button" class="btn btn-primary" data-toggle="modal"
+    data-target="#faq5">View Ans
+</button> 
+</td>
+</tr>
+            </tbody>
         </table>
-      </div>
-      <div id="pricing" data-tab-content>
-      </div>
-      <div id="about" data-tab-content>
-        <h1>Other Details</h1>
-        <p>Let me tell you about me</p>
-      </div>
-    </div>
-    <script src="../js/script.js"></script>
+        <div class="modal" id="editModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h2>Edit Department</h2>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form id="edit-dept" class="modal-body">
+                            <label for="fname"><b>Department Name</b></label>
+                            <input type="text" id="modalinput" placeholder="Department Name" name="editdptname">
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">ADD</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                            <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
 </body>
 </html>

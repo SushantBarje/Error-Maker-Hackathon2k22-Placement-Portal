@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="styleQuiz.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="main-div">
+
+
+    <div class="inner-div loginArea">
+
+      <i class="icon fa fa-home"></i><hr>
+      <div class="loginForm">
+        <div class="imgcontainer">
+          <h2 class="heading">Alpha Quiz System</h2>
+        </div>
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" class="uname" name="uname" value="admin" required>
+          <label for="psw"><b>Password</b></label>
+          <input type="password" autocomplete="on" placeholder="Enter Password" class="psw" name="psw" value="admin"required>
+          <button id="submit_login_form" type="submit">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="inner-div rulesArea">
+      <i class="icon fa fa-home"></i>
+      <hr>
+
+      <div class="area">
+
+
+        <div class="container" id="indexBody">
+          <div class="container">
+            <div class="panel panel-primary">
+
+              <div class="panel-heading">
+                <h1>Rules and regulations for the Quiz</h1>
+              </div>
+              <div class="panel-body">
+                <ol>
+                  <li class="text-primary"> 1.Quiz will contain total 20 questions.</li>
+                  <li class="text-primary"> 2.One point will be awarded for each correct answer.</li>
+                  <li class="text-primary"> 3.No half marks will be awarded.</li>
+                  <li class="text-primary"> 4.Each question has 4 options.</li>
+                  <li class="text-primary"> 5.Do not refresh the page.</li>
+                  <li class="text-primary"> 6.Final score will be shown after the submission of the quiz.</li>
+                  <li class="text-primary"> 7.Do not move out of the quiz window else your quiz will be auto submitted.
+                  </li>
+                </ol>
+              </div>
+              <div class="panel-footer">
+                <div id="labelCheckTnc" class="checkbox">
+                  <label><input type="checkbox" checked="checked" class="agree" name="agree">I Agree</label>
+                  <input id="startQuiz" style="margin-left:20px" class="btn btn-success" type="button"
+                    value="Start Quiz" onclick="startQuiz()">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+    <div class="inner-div questionArea">
+
+      <i class="icon fa fa-home"></i>
+      <hr>
+
+      <h2 class="question"> Question Come Here</h2>
+      <ul>
+        <li>
+          <input type="radio" name="answer" id="ans1" class="answer">
+          <label for="ans1" id="option1">Answer Option</label>
+        </li>
+        <li>
+          <input type="radio" name="answer" id="ans2" class="answer">
+          <label for="ans2" id="option2">Answer Option</label>
+        </li>
+        <li>
+          <input type="radio" name="answer" id="ans3" class="answer">
+          <label for="ans3" id="option3">Answer Option</label>
+        </li>
+        <li>
+          <input type="radio" name="answer" id="ans4" class="answer">
+          <label for="ans4" id="option4">Answer Option</label>
+        </li>
+      </ul>
+      <button id="back">Back</button>
+      <button id="submit">Next</button>
+      <div id="showScore" class="scoreArea"></div>
+    </div>
+
+    <div class="inner-div result">
+
+      <i class="icon fa fa-home"></i>
+      <hr>
+
+      <div class="showResult">
+        <h1 id="urResult"></h1>
+        <h1 id="urMedian"></h1>
+      </div>
+      <div class="showResult" style="font-size: 12px;">
+        <span id="qn"></span>
+        <span id="wa"></span>
+        <span id='ca'></span>
+      </div>
+      <div class="foot">
+
+      </div>
+      <div class="tableContainer">
+        <h3>Quiz Analysis</h3>
+        <table id="customers" style="width:100%">
+          <tr>
+            <th>QueNo</th>
+            <th>Answers</th>
+            <th>Mark Alloted</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</body>
+<script src="script.js"></script>
+</html>

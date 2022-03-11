@@ -146,12 +146,8 @@
                             <!-- Modal body -->
                             <div class="modal-body">
                                 <form id="add-student" class="modal-body">
-                                   
-                                    <div class="form-group">
-                                        <label for="prn"><b>PRN NO</b></label>
-                                        <input type="number" placeholder="Enter PRN" name="prn"
-                                            class="form-control form-control-sm" required>
-                                    </div>
+
+                                    <h4>Personal Details</h4>
                                     <div class="form-row">
                                         <div class="form-group col-sm-4">
                                             <label for="fname"><b>First Name</b></label>
@@ -194,20 +190,30 @@
                                                 placeholder="Mobile no" name="mobileno" required>
                                         </div>
                                         <div class="form-group col-sm-4">
+                                            <label for="adhar"><b>Adhar No</b></label>
+                                            <input type="text" class="form-control form-control-sm"
+                                                placeholder="adhar no" name="adhar no" required>
+                                        </div>
+
+                                    </div>
+                                    <h4>Educational Details</h4>
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-4">
                                             <label for="department"><b>Department</b></label>
                                             <input type="text" class="form-control form-control-sm"
                                                 placeholder="department" name="department" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="prn"><b>PRN NO</b></label>
+                                            <input type="number" placeholder="Enter PRN" name="prn"
+                                                class="form-control form-control-sm" required>
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label for="class"><b>Class</b></label>
                                             <input type="text" class="form-control form-control-sm" placeholder="class"
                                                 name="class" required>
                                         </div>
-                                        <div class="form-group col-sm-4">
-                                            <label for="adhar"><b>Adhar No</b></label>
-                                            <input type="text" class="form-control form-control-sm"
-                                                placeholder="adhar no" name="adhar no" required>
-                                        </div>
+
                                         <div class="form-group col-sm-4">
                                             <label for="pan"><b>Pan No</b></label>
                                             <input type="text" class="form-control form-control-sm" placeholder="panno"
@@ -219,7 +225,7 @@
                                                 placeholder="10th score" name="10th score" required>
                                         </div>
                                         <div class="form-group col-sm-4">
-                                            <label for="12th"><b>12th score/Diploma</b></label>
+                                            <label for="12th"><b>12th/Diploma</b></label>
                                             <input type="text" class="form-control form-control-sm"
                                                 placeholder="12th score/Diploma" name="2th score/Diploma" required>
                                         </div>
@@ -233,6 +239,9 @@
                                             <input type="text" class="form-control form-control-sm"
                                                 placeholder="backlog" name="backlog" required>
                                         </div>
+                                    </div>
+                                    <h4>Other Details</h4>
+                                    <div class="form-row">
                                         <div class="form-group col-sm-4">
                                             <label for="gap"><b>Gap</b></label>
                                             <input type="text" class="form-control form-control-sm" placeholder="gap"
@@ -240,31 +249,28 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="certificate"><b>Certificates</b></label>
-                                            <input type="text" placeholder="certificates" name="certificate"
-                                                class="form-control form-control-sm" required>
+                                            <form>
+                                                <input type="file" id="myFile" name="filename" required>
+                                                <button class="btn btn-primary">Upload</button>
+                                            </form>
                                         </div>
                                         <div class="form-group">
                                             <label for="project"><b>Projects</b></label>
-                                            <input type="text" placeholder="projects" name="project"
-                                                class="form-control form-control-sm" required>
+                                            <textarea name="projetc" id="" cols="20" rows="2"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="achievement"><b>Achievements</b></label>
-                                            <input type="text" placeholder="achievement" name="achievement"
-                                                class="form-control form-control-sm" required>
+                                            <label for="project"><b>Achievements</b></label>
+                                            <textarea name="achievements" id="" cols="20" rows="2"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="work"><b>Work Experience</b></label>
-                                            <input type="text" placeholder="work experience" name="workexperience"
-                                                class="form-control form-control-sm" required>
+                                            <textarea name="experience" id="" cols="20" rows="2"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="technical"><b>Technical Skills</b></label>
-                                            <input type="text" placeholder="technical skills" name="technicalskill"
-                                                class="form-control form-control-sm" required>
+                                            <textarea name="tech-skil" id="" cols="20" rows="2" required></textarea>
                                         </div>
                                     </div>
-
                                     <div class="form-row">
                                         <div class="form-group col-sm-5">
                                             <label for="roll_no"><b>Roll No.</b></label>
@@ -474,7 +480,7 @@
 
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
-                                       
+
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                     </div>
                                 </form>

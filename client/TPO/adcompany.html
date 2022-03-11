@@ -108,7 +108,7 @@
                         <div class="modal-content">
                             <!-- Modal Header -->
                             <div class="modal-header">
-                                <h2>Add Company</h2>
+                                <h2>Add Company Details</h2>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <!-- Modal body -->
@@ -116,16 +116,15 @@
                                 <form id="dpt-form" class="modal-body">
                                     <div class="row">
                                         <div class="form-group col-sm-12">
-                                            <label for="fname"><b>company Name</b></label>
+                                            <label for="fname"><b>Company Name</b></label>
                                             <input type="text" id="dptname" class="form-control form-control-sm"
                                                 placeholder="company Name" name="dptname">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-sm-12">
-                                            <label for="fname"><b>Company ID</b></label>
-                                            <input type="number" id="dptname" class="form-control form-control-sm"
-                                                placeholder="id" name="dptname">
+                                            <label for="fname"><b>Description</b></label>
+                                            <textarea name="decs" id="" cols="30" rows="2">Description</textarea>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -151,18 +150,44 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-sm-12">
-                                            <label for="fname"><b>Criteria</b></label>
-                                            <input type="text" id="dptname" class="form-control form-control-sm"
-                                                placeholder="criteria" name="dptname">
+                                            <label for="criteria"><b>Criteria</b></label>
+                                            <p>
+                                                <label for="ssc"><b>Ssc marks</b></label>
+                                                <input type="text" name="sscmarks" id="ssc">
+                                            </p>
+                                            <p>
+                                                <label for="hsc"><b>Hsc marks</b></label>
+                                                <input type="text" name="sscmarks" id="ssc">
+                                            </p>
+                                            <p>
+                                                <label for="degree"><b>Degree aggregate</b></label>
+                                                <input type="text" name="sscmarks" id="ssc">
+                                            </p>
+                                            <p>
+                                                <label for="gap"><b>Gap</b></label>
+                                                <input type="text" name="gap" id="ssc">
+                                            </p>
+                                            <p>
+                                                <label for="others"><b>Others</b></label>
+                                                <input type="text" name="gap" id="ssc">
+                                            </p>
+                                            <p>
+                                                <label for="expdate"><b>Expiry Date</b></label>
+                                                <input type="date" name="gap" id="ssc">
+                                            </p>
+
+                                            <h6>Departments</h6>
+                                            <p>
+                                                <input type="checkbox" name="dept[]" value="1">Cse
+                                                <input type="checkbox" name="dept[]" value="2">Mech
+                                                <input type="checkbox" name="dept[]" value="3">E&tc
+                                                <input type="checkbox" name="dept[]" value="4">Electrical
+                                                <input type="checkbox" name="dept[]" value="5">Civil
+                                            </p>
+
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="form-group col-sm-12">
-                                            <label for="fname"><b>Description</b></label>
-                                            <input type="text" id="dptname" class="form-control form-control-sm"
-                                                placeholder="discription" name="dptname">
-                                        </div>
-                                    </div>
+
 
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-success">Add</button>
@@ -181,7 +206,7 @@
                         <div class="modal-content">
                             <!-- Modal Header -->
                             <div class="modal-header">
-                                <h2>View  Company Details</h2>
+                                <h2>View Company Details</h2>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <!-- Modal body -->
@@ -238,7 +263,7 @@
                                     </div>
 
                                     <div class="modal-footer">
-                                        
+
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                     </div>
                                     <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
@@ -269,9 +294,8 @@
                     <td>6LPA</td>
                     <td>Pune</td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                        data-target="#viewModal">View
-                    </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewModal">View
+                        </button>
                     </td>
                 </tr>
             </tbody>
