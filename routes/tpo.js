@@ -3,6 +3,16 @@ var router = express.Router();
 var con = require('../database/connection');
 const crypto = require('crypto');
 var auth = require('../middleware/auth');
+var nodemailer = require('nodemailer');
+var auth = require('../middleware/auth');
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'sushantbarje11@gmail.com',
+    pass: 'Sushant@234'
+  }
+});
 
 router.post('/add_student', auth.verify , (req, res) => {
     const first_name = req.body.first_name;
@@ -21,6 +31,21 @@ router.post('/add_student', auth.verify , (req, res) => {
         sql = "INSERT INTO student(first_name, middle_name, last_name, email, mobile_no, password) VALUES(?,?,?,?,?,?);";
         con.query(sql, [first_name, middle_name, last_name, email, mobile_no, password2], (err, result) => {
           if (err) throw err;
+          var mailtext = 'Username: ' + email + '\n' + 'Password: ' + password;
+          var mailOptions = {
+            from: 'sushantbarje11@gmail.com',
+            to: 'sushantbarje11@gmail.com',
+            subject: 'Sending Email using Node.js username and password',
+            text: mailtext
+          };
+
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
           res.status(200).json({error:"none", msg: password});
         });
       }
@@ -28,7 +53,6 @@ router.post('/add_student', auth.verify , (req, res) => {
 });
 
 router.post('/add_company', auth.verify , (req, res) => {
-  console.log("Sushant");
 
     const company_name = req.body.company_name;
     const descr = req.body.description;
@@ -43,18 +67,14 @@ router.post('/add_company', auth.verify , (req, res) => {
     const other = req.body.other;
     const active_status = req.body.active_status;
     const expires_date = new Date((dt = new Date()).getTime() - dt.getTimezoneOffset() * 60000).toISOString().replace(/(.*)T(.*)\..*/,'$1 $2')
-    console.log(timestamp);
 
-    
-    var sql = "INSERT INTO company(name, description, location, role, ctc, ssc_marks, hsc_marks, degree_agg, backlog_allowed, other, active_status, expires_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?);";
+    var sql = "INSERT INTO company(name, description, location, role, ctc, ssc_marks, hsc_marks, degree_agg, backlog_allowed,gap, other, active_status, expires_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);";
   
-    con.query(sql, [company_name, descr, role, ctc, location, ssc_marks, hsc_marks, degree_marks, backlog_allowed, gap, other,active_status, expires_date], (err, result, fields) => {
+    con.query(sql, [company_name, descr, role, ctc, location, ssc_marks, hsc_marks, degree_marks, backlog_allowed, gap,  other, active_status, expires_date], (err, result, fields) => {
       if (err) throw err;
-      console.log(result.insertId);
-      sql = "INSERT INTO company_status(student_id, company_id) (SELECT id from student WHERE id = ?),(SELECT id from company WHERE id = ?)";
-      con.query(sql, [])
-    })
-
+      res.status(200).json({error: "none", msg: "Company Added Successfully.."});
+    });
+    
     // var sql = "INSERT INTO company_status() SELECT id from student WHERE ssc_marks = ? and hsc_marks = ? and degree_marks = ? and backlog_allow"
     // con.query()
 })

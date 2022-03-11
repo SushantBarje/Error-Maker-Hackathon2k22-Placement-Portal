@@ -19,6 +19,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(express.static(__dirname + '/client'));
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/client/index.html");
+});
+
+app.get("/tpo_dashboard", (req, res) => {
+  res.sendFile(__dirname + "/client/TPO/adminHeader.html");
+});
+
+app.get("/adminHeader", (req, res) => {
+  res.sendFile(__dirname + "/client/student_dashboard/adminHeader.html");
+});
+
 
 var userRouter = require('./routes/user');
 var tpoRouter = require('./routes/tpo');
