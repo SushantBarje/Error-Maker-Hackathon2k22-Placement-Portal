@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashbord</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/tab.css">
+    
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+</head>
+<body>
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2><span class="lab la-accusoft"></span><span>Student Dashboard</span></h2>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="admindash.php" class="active"><span class="fa fa-fw fa-home"></span>
+                    <span>Home</span></a>
+                </li>
+                <li>
+                    <a href="createProfile.html"><span class="las la-users"></span>
+                    <span>Create/Edit Profile</span></a>
+                </li>
+                <li>
+                    <a href="viewAnnouncement.html"><span class="las la-users"></span>
+                    <span>View Announcements</span></a>
+                </li>
+                <li>
+                    <a href="placementcell.html"><span class="las la-shopping-bag"></span>
+                        <span>View Placement Cell</span></a>
+                </li>
+                <li>
+                    <a href="faqs.html"><span class="las la-shopping-bag"></span>
+                        <span>FAQS</span></a>
+                </li>
+
+                
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content" >
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label>
+              Sinhgad Placement Portal
+            </h2>
+            <div class="user-wrapper">
+                <img src="../img/profile_img.jpg" width="30px" height="30px" alt="">
+                <div>
+                    <h4><?php echo $_SESSION['first_name']." ".$_SESSION['last_name']?></h4>
+                    <small>
+                        <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn">Admin</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="../logout.php"><i class="fa fa-fw fa-user"></i>Logout</a>
+                            </div>
+                    </small>
+                    <script>
+                        /* When the user clicks on the button, 
+                        toggle between hiding and showing the dropdown content */
+                        function myFunction() {
+                            document.getElementById("myDropdown").classList.toggle("show");
+                        }
+
+                        // Close the dropdown if the user clicks outside of it
+                        window.onclick = function(event) {
+                            if (!event.target.matches('.dropbtn')) {
+                                var dropdowns = document.getElementsByClassName("dropdown-content");
+                                var i;
+                                for (i = 0; i < dropdowns.length; i++) {
+                                    var openDropdown = dropdowns[i];
+                                    if (openDropdown.classList.contains('show')) {
+                                        openDropdown.classList.remove('show');
+                                    }
+                                }
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </header>
+    <ul class="tabs">
+      <li data-tab-target="#home" class="active tab">Personal Details</li>
+      <li data-tab-target="#pricing" class="tab">Educational Details</li>
+      <li data-tab-target="#about" class="tab">Other Details</li>
+    </ul>
+  
+    <div class="tab-content">
+      <div id="home" data-tab-content class="active">
+        <table class="center">
+          <form>  
+            <div class="container">  
+              <h2> Student Personal Details:</h2>  
+            <hr>  
+            <label> First Name </label>   
+          <input type="text" name="firstname" placeholder= "Firstname" size="15" required />   
+          <label> Middle Name </label>   
+          <input type="text" name="middlename" placeholder="Middlename" size="15" required />   
+          <label> Last Name </label>    
+          <input type="text" name="lastname" placeholder="Lastname" size="15"required />
+          <label> Mother's Name </label>    
+          <input type="text" name="mothername" placeholder="mothername" size="15"required />  
+          <!-- <label class="num1"> PRN No:</label>   <br>   -->
+          <input type="number" name="prn" placeholder="Enter university PRN" size="15"required /> 
+          <!-- <label for="adhaar" class="num">Adhaar No:</label>   -->
+          <input type="number" placeholder="Enter adhaar number" name="adhaar" class="num" required>    
+          <div> 
+            <label for="class" class="la">Class</label>
+              <select name="" id="">
+                <option value="ty">Third Year</option>
+                <option value="be">Last Year</option>
+              </select>
+              <br>
+             
+          <label for="course" class="la">   
+          Department  
+          </label>   
+            
+          <select>   
+          <option value="CSE">CSE</option>  
+          <option value="MECH">MECH</option>  
+          <option value="CIVIL">CIVIL</option>  
+          <option value="ENTC">ENTC</option>  
+          <option value="ELE">ELE</option>   
+          </select>  
+          </div>  
+          <div>  
+          <label for="gender">   
+          Gender 
+          </label>  
+          <input type="radio" value="Male" name="gender" checked > Male   
+          <input type="radio" value="Female" name="gender"> Female   
+          <input type="radio" value="Other" name="gender" > Other <br> 
+          <div class="dob">
+          <label > DOB </label> 
+          <input type="date" name="dob" placeholder="Enter date of birth" size="15"required /> 
+        </div>
+            
+          </div>       
+          <input type="text" name="phone" placeholder="phone no." size="10"/ required>   
+          <label for="address">Current Address</label>  
+          <textarea cols="80" rows="5" placeholder="Current Address" value="address" required>  
+          </textarea>  
+           <label for="email">Email</label>  
+           <input type="text" placeholder="Enter Email" name="email" required>  
+            
+              <label for="psw">Password</label>  
+              <input type="password" placeholder="Enter Password" name="psw" required>  
+            
+              <label for="psw-repeat">Re-type Password</label>  
+              <input type="password" placeholder="Retype Password" name="psw-repeat" required>  
+              <button type="submit" class="savebtn">Save</button>    
+          </form>  
+        </table>
+      </div>
+      <div id="pricing" data-tab-content>
+      </div>
+      <div id="about" data-tab-content>
+        <h1>Other Details</h1>
+        <p>Let me tell you about me</p>
+      </div>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
