@@ -38,6 +38,7 @@ router.post('/student', (req,res) => {
 		con.query('SELECT id,email,password FROM student WHERE email = ? and password = ?', [email, password], function(error, result, fields) {
 			if (error) throw error;
 			if (result.length > 0) {
+				console.log(result[0].id);
 				const accessToken = auth.generateAccessToken({ username: email, role: 'tpo', id: result[0].id });
         res.status(200).json({error: "none", msg: accessToken});
 			} else {

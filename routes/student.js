@@ -3,6 +3,15 @@ var router = express.Router();
 var con = require('../database/connection');
 const crypto = require('crypto');
 const auth = require('../middleware/auth');
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'sushantbarje11@gmail.com',
+    pass: 'Sushant@234'
+  }
+});
 
 router.post('/edit_details', auth.verify, (req, res) => {
   const gender =  req.body.gender;
@@ -52,11 +61,33 @@ router.get('/get_company', auth.verify, (req, res) => {
 
 router.post('/apply', auth.verify, (req, res) => {
   const company_id = req.body.company_id;
-  console.log(req.user);
   var sql = "INSERT INTO company_status(student_id, company_id, status) VALUES(?,?,?);";
   con.query(sql, [req.user.id, company_id, 1], (err, result) => {
     if (err) throw err;
+    var mailtext = 'You have succesfully applied for this job.';
+    var mailOptions = {
+      from: 'sushantbarje11@gmail.com',
+      to: 'sushantbarje11@gmail.com',
+      subject: 'Sending Email using Node.js username and password',
+      text: mailtext
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
     res.status(200).json({error: "none", msg: "Registration Successful."});
+  });
+})
+
+router.get('/get_companies', auth.verify, (req, res) => {
+  var sql = "SELECT * FROM company;";
+  con.query(sql, (err, result) => {
+    if (err) throw err;
+    res.status(200).json({error: "none" , msg: result});
   });
 })
 

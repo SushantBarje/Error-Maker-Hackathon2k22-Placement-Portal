@@ -68,7 +68,7 @@ router.post('/add_company', auth.verify , (req, res) => {
     const active_status = req.body.active_status;
     const expires_date = new Date((dt = new Date()).getTime() - dt.getTimezoneOffset() * 60000).toISOString().replace(/(.*)T(.*)\..*/,'$1 $2')
 
-    var sql = "INSERT INTO company(name, description, location, role, ctc, ssc_marks, hsc_marks, degree_agg, backlog_allowed,gap, other, active_status, expires_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);";
+    var sql = "INSERT INTO company(name, description,  role, ctc,location, ssc_marks, hsc_marks, degree_agg, backlog_allowed,gap, other, active_status, expires_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?);";
   
     con.query(sql, [company_name, descr, role, ctc, location, ssc_marks, hsc_marks, degree_marks, backlog_allowed, gap,  other, active_status, expires_date], (err, result, fields) => {
       if (err) throw err;
@@ -96,6 +96,15 @@ router.post('/add_company', auth.verify , (req, res) => {
     
     // var sql = "INSERT INTO company_status() SELECT id from student WHERE ssc_marks = ? and hsc_marks = ? and degree_marks = ? and backlog_allow"
     // con.query()
-})
+});
+
+router.post('/get_all_student', auth.verify, (req, res) => {
+  var sql = "SELECT * FROM student;";
+  con.query(sql, (err, result) => {
+    if(err) throw err;
+    res.status(200).json({error: "none", msg: result});
+  });
+});
+
 
 module.exports = router;
