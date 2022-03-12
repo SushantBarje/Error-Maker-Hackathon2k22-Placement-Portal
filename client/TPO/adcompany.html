@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Dashbord</title>
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="icon" href="../img/favicon.ico">
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet"
@@ -152,12 +153,12 @@
                                         <div class="form-group col-sm-12">
                                             <label for="criteria"><b>Criteria</b></label>
                                             <p>
-                                                <label for="ssc_marks"><b>Ssc marks</b></label>
-                                                <input type="text" name="sscmarks" id="ssc_marks">
+                                                <label for="ssc"><b>Ssc marks</b></label>
+                                                <input type="text" name="ssc_marks" id="ssc">
                                             </p>
                                             <p>
-                                                <label for="hsc_marks"><b>Hsc marks</b></label>
-                                                <input type="text" name="hscmarks" id="hsc_marks">
+                                                <label for="hsc"><b>Hsc marks</b></label>
+                                                <input type="text" name="hsc_marks" id="ssc">
                                             </p>
                                             <p>
                                                 <label for="degree_marks"><b>Degree aggregate</b></label>
@@ -166,6 +167,10 @@
                                             <p>
                                                 <label for="gap"><b>Gap</b></label>
                                                 <input type="text" name="gap" id="gap">
+                                            </p>
+                                            <p>
+                                                <label for="backlog"><b>Backlog</b></label>
+                                                <input type="text" name="backlog_allowed" id="ssc">
                                             </p>
                                             <p>
                                                 <label for="others"><b>Others</b></label>
@@ -283,27 +288,44 @@
             <thead>
                 <tr>
                     <th>Comapany Name</th>
-                    <th>Company ID</th>
-                    <th>Role</th>
-                    <th>CTC</th>
-                    <th>Location</th>
-                    <th>View More</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td id="company_id">Id</td>
                     <td>Cognizant</td>
-                    <td>2</td>
-                    <td>ASE</td>
-                    <td>6LPA</td>
-                    <td>Pune</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Role</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>Criteria</th>
                     <td>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewModal">View
-                        </button>
+                        <ol>
+                            <li></li>
+                            <li></li>
+                        </ol>
                     </td>
                 </tr>
-            </tbody>
+                <tr>
+                    <th>CTC Offered</th>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <th>Location</th>
+                    <td>
+                        <ol>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ol>
+                    </td>
+                </tr>
+
+
+            </thead>
+
         </table>
     </main>
 
