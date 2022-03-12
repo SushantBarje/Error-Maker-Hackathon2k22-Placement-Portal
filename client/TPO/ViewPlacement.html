@@ -179,31 +179,48 @@
         </div>
       </div>
     </div>
+   
     <table class="table table-sm table-bordered table-hover cell-border nowrap" cellspacing="0" width="100%"
-      id="dept-table">
+    id="dept-table">
+    <thead>
+      <tr>
+        <th>Company Name</th>
+      
+        <th>View Statstics</th>
+      </tr>
+
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <select>
+            <option value="cognizant">Cognizant</option>
+            <option value="accnture">Accenture</option>
+            <option value="wipro">Wipro</option>
+            <option value="amdocs">Amdocs</option>
+            <option value="ibm">IBM</option>
+            <option value="xorient">Xorient</option>
+            <option value="hcl">HCL</option>
+
+          </select>
+
+        </td>
+        
+        <td>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewModal">View Stastics
+          </button>
+        </td>
+      </tr>
       <thead>
         <tr>
-          <th>Company Name</th>
+         
           <th>Select Department</th>
           <th>View Statstics</th>
         </tr>
-
+    
       </thead>
       <tbody>
         <tr>
-          <td>
-            <select>
-              <option value="cognizant">Cognizant</option>
-              <option value="accnture">Accenture</option>
-              <option value="wipro">Wipro</option>
-              <option value="amdocs">Amdocs</option>
-              <option value="ibm">IBM</option>
-              <option value="xorient">Xorient</option>
-              <option value="hcl">HCL</option>
-
-            </select>
-
-          </td>
           <td>
             <select>
               <option value="cognizant">CSE</option>
@@ -212,38 +229,20 @@
               <option value="cognizant">CIVIL</option>
               <option value="cognizant">ELECTRICAL</option>
             </select>
-          </td>
+         
           <td>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewModal">View Stastics
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewModals">View Stastics
             </button>
           </td>
         </tr>
       </tbody>
-    </table>
-    <div class="modal" id="editModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h2>Edit Department</h2>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <!-- Modal body -->
-          <div class="modal-body">
-            <form id="edit-dept" class="modal-body">
-              <label for="fname"><b>Department Name</b></label>
-              <input type="text" id="modalinput" placeholder="Department Name" name="editdptname">
-              <!-- Modal footer -->
-              <div class="modal-footer">
-                <button type="submit" class="btn btn-success">ADD</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              </div>
-              <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+    </tbody>
+  </table>
+  <table class="table table-sm table-bordered table-hover cell-border nowrap" cellspacing="0" width="100%"
+  id="dept-table">
+  
+</table>
+   <!-- View Stastics related Depet -->
 
     <div class="modal" id="viewModal">
       <div class="modal-dialog">
@@ -299,6 +298,64 @@
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
           <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
+          </form>
+        </div>
+      </div>
+    </div>
+  
+    <div class="modal" id="viewModals">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h2 align="center">View Stastics</h2>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form id="company-table" class="modal-body">
+              <table>
+                <tr>
+
+                  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+                  <div id="myChart" style="width:100%; max-width:600px; height:200px;">
+                  </div>
+
+                  <script>
+                    google.charts.load('current', { 'packages': ['corechart'] });
+                    google.charts.setOnLoadCallback(drawChart);
+
+                    function drawChart() {
+                      var data = google.visualization.arrayToDataTable([
+                        ['Department', 'count'],
+                        ['CSE', 54],
+                        ['ENTC', 48],
+                        ['Electrical', 44],
+                        ['Mechanical', 23],
+                        ['Civil', 14]
+                      ]);
+
+                      var options = {
+                        title: 'Placement Stastics',
+                        is3D: true
+                      };
+
+                      var chart = new google.visualization.PieChart(document.getElementById('myChart'));
+                      chart.draw(data, options);
+                    }
+                  </script>
+                </tr>
+
+
+              </table>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
           </form>
         </div>
       </div>
