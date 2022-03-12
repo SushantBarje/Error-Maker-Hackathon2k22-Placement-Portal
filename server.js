@@ -25,13 +25,13 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/client/index.html");
 });
 
-app.get("/tpo_dashboard", (req, res) => {
-  res.sendFile(__dirname + "/client/TPO/adminHeader.html");
-});
+// app.get("/tpo_dashboard", (req, res) => {
+//   res.sendFile(__dirname + "/client/TPO/adminHeader.html");
+// });
 
-app.get("/adminHeader", (req, res) => {
-  res.sendFile(__dirname + "/client/student_dashboard/adminHeader.html");
-});
+// app.get("/adminHeader", (req, res) => {
+//   res.sendFile(__dirname + "/client/student_dashboard/adminHeader.html");
+// });
 
 
 var userRouter = require('./routes/user');

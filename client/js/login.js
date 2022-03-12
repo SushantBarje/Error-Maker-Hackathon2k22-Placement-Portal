@@ -6,15 +6,15 @@ $(document).ready(function(){
     console.log(password);
     var jsondata = JSON.stringify({'username':username,'password':password});
     $.ajax({
+      url: "http://localhost:4000/api/users/login/tpo",
       type: "POST",
       contentType: "application/json",
-      dataType: "json",
       data : jsondata,
-      url: "http://localhost:4000/api/users/login/tpo",
+      dataType: 'json',
       success : function(res){
         console.log(res);
         if(res.error == 'none' && res.msg){
-          localStorage.setItem('token', 'Bearer' + res.msg);
+          localStorage.setItem('token', 'Bearer ' + res.msg);
           window.location.href = './TPO/adminHeader.html';
         }else{
           alert('Invalid Username password');
@@ -38,7 +38,7 @@ $(document).ready(function(){
       success : function(res){
         console.log(res);
         if(res.error == 'none' && res.msg){
-          localStorage.setItem('token', 'Bearer' + res.msg);
+          localStorage.setItem('token', 'Bearer ' + res.msg);
           window.location.href = './student_dashboard/adminHeader.html';
         }else{
           alert('Invalid Username password');

@@ -46,7 +46,7 @@ router.post('/add_student', auth.verify , (req, res) => {
               console.log('Email sent: ' + info.response);
             }
           });
-          res.status(200).json({error:"none", msg: password});
+          res.status(200).json({err:"none", msg: password});
         });
       }
     });
@@ -72,7 +72,26 @@ router.post('/add_company', auth.verify , (req, res) => {
   
     con.query(sql, [company_name, descr, role, ctc, location, ssc_marks, hsc_marks, degree_marks, backlog_allowed, gap,  other, active_status, expires_date], (err, result, fields) => {
       if (err) throw err;
-      res.status(200).json({error: "none", msg: "Company Added Successfully.."});
+      var mailtext = 'New Job available on Sinhgad placement portal \n'+ 'Name: '+ company_name + '\n Description: '+ descr + '\n CTC: '+ ctc + '\n See more details on portal.';
+      var mailOptions = {
+        from: 'sushantbarje11@gmail.com',
+        to: 'sushantbarje11@gmail.com',
+        subject: 'Sending Email using Node.js username and password',
+        text: mailtext
+      };
+
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
+      sql = "SELECT * FROM company;";
+      con.query(sql, (err, result) => {
+        if (err) throw err;
+        res.status(200).json({error: "none", msg: result});
+      });
     });
     
     // var sql = "INSERT INTO company_status() SELECT id from student WHERE ssc_marks = ? and hsc_marks = ? and degree_marks = ? and backlog_allow"

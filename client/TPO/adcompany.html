@@ -117,63 +117,67 @@
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <label for="fname"><b>Company Name</b></label>
-                                            <input type="text" id="dptname" class="form-control form-control-sm"
-                                                placeholder="company Name" name="dptname">
+                                            <input type="text" id="company_name" class="form-control form-control-sm"
+                                                placeholder="Company Name" name="company_name">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-sm-12">
-                                            <label for="fname"><b>Description</b></label>
-                                            <textarea name="decs" id="" cols="30" rows="2">Description</textarea>
+                                            <label for="description"><b>Description</b></label>
+                                            <textarea name="decription" id="description" cols="30" rows="2">Description</textarea>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-sm-12">
-                                            <label for="fname"><b>Role</b></label>
-                                            <input type="text" id="dptname" class="form-control form-control-sm"
-                                                placeholder="role Name" name="dptname">
+                                            <label for="role"><b>Role</b></label>
+                                            <input type="text" id="role" class="form-control form-control-sm"
+                                                placeholder="ROle" name="role">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-sm-12">
-                                            <label for="fname"><b>CTC</b></label>
-                                            <input type="text" id="dptname" class="form-control form-control-sm"
-                                                placeholder="ctc" name="dptname">
+                                            <label for="ctc"><b>CTC</b></label>
+                                            <input type="text" id="ctc" class="form-control form-control-sm"
+                                                placeholder="ctc" name="ctc">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-sm-12">
-                                            <label for="fname"><b>Location</b></label>
-                                            <input type="text" id="dptname" class="form-control form-control-sm"
-                                                placeholder="location" name="dptname">
+                                            <label for="location"><b>Location</b></label>
+                                            <input type="text" id="location" class="form-control form-control-sm"
+                                                placeholder="location" name="location">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-sm-12">
                                             <label for="criteria"><b>Criteria</b></label>
                                             <p>
-                                                <label for="ssc"><b>Ssc marks</b></label>
-                                                <input type="text" name="sscmarks" id="ssc">
+                                                <label for="ssc_marks"><b>Ssc marks</b></label>
+                                                <input type="text" name="sscmarks" id="ssc_marks">
                                             </p>
                                             <p>
-                                                <label for="hsc"><b>Hsc marks</b></label>
-                                                <input type="text" name="sscmarks" id="ssc">
+                                                <label for="hsc_marks"><b>Hsc marks</b></label>
+                                                <input type="text" name="hscmarks" id="hsc_marks">
                                             </p>
                                             <p>
-                                                <label for="degree"><b>Degree aggregate</b></label>
-                                                <input type="text" name="sscmarks" id="ssc">
+                                                <label for="degree_marks"><b>Degree aggregate</b></label>
+                                                <input type="text" name="degreemarks" id="degree_marks">
                                             </p>
                                             <p>
                                                 <label for="gap"><b>Gap</b></label>
-                                                <input type="text" name="gap" id="ssc">
+                                                <input type="text" name="gap" id="gap">
                                             </p>
                                             <p>
                                                 <label for="others"><b>Others</b></label>
-                                                <input type="text" name="gap" id="ssc">
+                                                <input type="text" name="others" id="others">
                                             </p>
                                             <p>
-                                                <label for="expdate"><b>Expiry Date</b></label>
-                                                <input type="date" name="gap" id="ssc">
+                                                <label for="backlog_allowed"><b>Backlogs Allowed</b></label>
+                                                <input type="text" name="backlog_allowed" id="backlog_allowed">
+                                            </p>
+                                            <p>
+                                                <label for="expiry_date"><b>Expiry Date</b></label>
+                                                <input type="date" name="expiry_date" id="expiry_date">
                                             </p>
 
                                             <h6>Departments</h6>
@@ -190,7 +194,7 @@
 
 
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-success">Add</button>
+                                        <button type="button" id="add-company-btn" class="btn btn-success">Add</button>
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                     </div>
                                     <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
@@ -275,7 +279,7 @@
             </div>
         </div>
         <table class="table table-sm table-bordered table-hover cell-border nowrap" cellspacing="0" width="100%"
-            id="dept-table">
+            id="company-table">
             <thead>
                 <tr>
                     <th>Comapany Name</th>
@@ -288,6 +292,7 @@
             </thead>
             <tbody>
                 <tr>
+                    <td id="company_id">Id</td>
                     <td>Cognizant</td>
                     <td>2</td>
                     <td>ASE</td>
@@ -300,31 +305,9 @@
                 </tr>
             </tbody>
         </table>
-        <div class="modal" id="editModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h2>Edit Department</h2>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <form id="edit-dept" class="modal-body">
-                            <label for="fname"><b>Department Name</b></label>
-                            <input type="text" id="modalinput" placeholder="Department Name" name="editdptname">
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-success">ADD</button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-                            <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
+
+    <script src="../js/company.js"></script>
 </body>
 
 </html>

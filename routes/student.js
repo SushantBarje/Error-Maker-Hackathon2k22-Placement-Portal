@@ -43,7 +43,6 @@ router.post('/edit_details', auth.verify, (req, res) => {
 });
 
 router.get('/get_company', auth.verify, (req, res) => {
-  
   var sql = "SELECT * FROM company;";
   con.query(sql, (err, result) => {
     if(err) throw err;
