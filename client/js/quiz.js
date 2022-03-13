@@ -103,7 +103,7 @@ const back = document.getElementById('back');
 
 const uname = document.querySelector('.uname');
 const psw = document.querySelector('.psw');
-const submit_login_form = document.querySelector('#submit_login_form');
+const submit_login_form = document.querySelector('#startQuiz');
 const questionArea = document.querySelector('.questionArea');
 const loginArea = document.querySelector('.loginArea');
 

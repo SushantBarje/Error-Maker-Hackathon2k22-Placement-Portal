@@ -116,30 +116,30 @@
               <h2> Student Personal Details:</h2>  
             <hr>  
             <label> First Name </label>   
-          <input type="text" name="firstname" placeholder= "Firstname" size="15" required />   
+          <input type="text" name="firstname" id="first_name" placeholder= "Firstname" size="15" disabled required />   
           <label> Middle Name </label>   
-          <input type="text" name="middlename" placeholder="Middlename" size="15" required />   
+          <input type="text" name="middlename" id="middle_name" placeholder="Middlename" size="15" disabled required />   
           <label> Last Name </label>    
-          <input type="text" name="lastname" placeholder="Lastname" size="15"required />
+          <input type="text" name="lastname" id="last_name" placeholder="Lastname" size="15" disabled required />
           <label> Mother's Name </label>    
-          <input type="text" name="mothername" placeholder="mothername" size="15"required />  
+          <input type="text" name="mothername" id="mother_name" placeholder="mothername" size="15"required />  
           <!-- <label class="num1"> PRN No:</label>   <br>   -->
-          <input type="number" name="prn" placeholder="Enter university PRN" size="15"required /> 
+          <input type="text" name="prn" id="prn_no" placeholder="Enter university PRN" size="15"required /> 
           <!-- <label for="adhaar" class="num">Adhaar No:</label>   -->
-          <input type="number" placeholder="Enter adhaar number" name="adhaar" class="num" required>    
+          <input type="text" placeholder="Enter adhaar number" id="aadhar_no" name="adhaar" class="num" required>    
           <div> 
             <label for="class" class="la">Class</label>
-              <select name="" id="">
+              <select name="" id="class">
                 <option value="ty">Third Year</option>
                 <option value="be">Last Year</option>
               </select>
               <br>
              
-          <label for="course" class="la">   
+          <label for="dept" class="dept">   
           Department  
           </label>   
             
-          <select>   
+          <select id="dept">   
           <option value="CSE">CSE</option>  
           <option value="MECH">MECH</option>  
           <option value="CIVIL">CIVIL</option>  
@@ -156,16 +156,16 @@
           <input type="radio" value="Other" name="gender" > Other <br> 
           <div class="dob">
           <label > DOB </label> 
-          <input type="date" name="dob" placeholder="Enter date of birth" size="15"required /> 
+          <input type="date" name="dob" id="dob" placeholder="Enter date of birth" size="15"required /> 
         </div>
             
           </div>       
-          <input type="text" name="phone" placeholder="phone no." size="10"/ required>   
+          <input type="text" id="mobile_no" name="phone" placeholder="phone no." size="10" disabled required>   
           <label for="address">Current Address</label>  
           <textarea cols="80" rows="5" placeholder="Current Address" value="address" required>  
           </textarea>  
            <label for="email">Email</label>  
-           <input type="text" placeholder="Enter Email" name="email" required>  
+           <input type="text" placeholder="Enter Email" id="email" name="email" disabled required>  
           </form>  
         </table>
       </div>
@@ -177,15 +177,15 @@
             <hr>  
             <div class="marks">
             <label> 10th Marks </label>  
-          <input type="number"  name="10th" placeholder= "10th" size="15" required />  <br> 
+          <input type="number" id="ssc_marks"  name="10th" placeholder= "10th" size="15" required />  <br> 
         </div>
         <div class="marks">
           <label class="n1"> 12th/Diploma Marks </label>   
-          <input type="number" name="12th" placeholder="12th" size="15" required />   <br>
+          <input type="number" id="hsc_marks" name="12th" placeholder="12th" size="15" required />   <br>
         </div>
           <div class="marks">
           <label class="n1"> Degree Aggregate </label> 
-          <input type="number" name="aggr" placeholder="aggr" size="15" required />
+          <input type="number" id="degree_marks" name="aggr" placeholder="aggr" size="15" required />
         </div>
                
           </form>  
@@ -211,7 +211,7 @@
             <tr>
               
               <td><form>
-                <input type="file" id="myFile" name="filename">
+                <input type="file" id="certificates" name="filename">
                 
               <td><button class="btn r">Upload</button></td>
               </form></td>
@@ -222,26 +222,26 @@
           <hr class="end">
           <div class="Achievements">
             <h2>Student Achievements</h2>
-            <textarea name="achievements" id="" cols="30" rows="10" placeholder="Enter your achievements here.."></textarea>
+            <textarea name="achievements" id="achievements" cols="30" rows="10" placeholder="Enter your achievements here.."></textarea>
           </div> 
           <hr class="end">
           <div class="Projects">
             <h2>Student Projects</h2>
-            <textarea name="projects" id="" cols="30" rows="10" placeholder="Enter your details of projects here.."></textarea>
+            <textarea name="projects" id="projects" cols="30" rows="10" placeholder="Enter your details of projects here.."></textarea>
           </div> 
           <hr class="end">
           <div class="Work-Experience">
             <div class="Projects">
               <h2>Student Work-Experience</h2>
-              <textarea name="work" id="" cols="30" rows="10" placeholder="Enter your work-experience here.."></textarea>
+              <textarea name="work" id="work-exp" cols="30" rows="10" placeholder="Enter your work-experience here.."></textarea>
             </div> 
           </div>
           <div class="resume">
           <hr class="end">
             <h2>Student Resume</h2>
-            <input type="file">
+            <input type="file" id="resume">
           </div>
-            <button class="submitbtn">Submit</button>
+            <button type="button" class="submitbtn" id="edit-details">Submit</button>
           </div>
         </form>
           

@@ -46,4 +46,21 @@ $(document).ready(function(){
     });
   });
 
+  $('#edit-details').click(function(){
+    var mother_name = $('#mother_name').val();
+    var prn_no = $('#prn_no').val();
+    var mobile_no = $('#mobile_no').val();
+    var aadhar_no = $('#aadhar_no').val();
+    var class_year = $('#class').val();
+    var dept = $('#dept').val();
+    var gender = $('#gender').val();
+    var dob = $('#dob').val();
+    var ssc_marks = $('#ssc_marks').val();
+    var hsc_marks = $('#hsc_marks').val();
+    var degree_marks = $('#degree_marks').val();
+    var certificates = $('#certificates').val();
+    var achievements = $('#achievements').val();
+    var work_exp = $('#work-exp').val();
+    var resume = $('#resume').val();
+  })
 });

@@ -61,6 +61,16 @@ router.get('/get_company', auth.verify, (req, res) => {
 
 router.post('/apply', auth.verify, (req, res) => {
   const company_id = req.body.company_id;
+  var sql = "SELECT * from student WHERE id = ?";
+  // con.query(sql, [req.user.id], (err, result1) => {
+  //   console.log(result);
+  //   con.query("SELECT * FROM company WHERE id=?", [company_id], (err, result2) => {
+  //     if(result1.ssc_marks == result2.ssc_marks && result1.hsc_marks == result2.hsc_marks && result1.backlog <= result2.backlog_allowed && result1.gap <= result2.gap){
+
+  //     }
+  //   });
+    
+  // })
   var sql = "INSERT INTO company_status(student_id, company_id, status) VALUES(?,?,?);";
   con.query(sql, [req.user.id, company_id, 1], (err, result) => {
     if (err) throw err;
