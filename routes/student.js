@@ -8,8 +8,8 @@ var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'sushantbarje11@gmail.com',
-    pass: 'Sushant@234'
+    user: 'email',
+    pass: '********'
   }
 });
 
@@ -76,8 +76,8 @@ router.post('/apply', auth.verify, (req, res) => {
     if (err) throw err;
     var mailtext = 'You have succesfully applied for this job.';
     var mailOptions = {
-      from: 'sushantbarje11@gmail.com',
-      to: 'sushantbarje11@gmail.com',
+      from: 'gmail',
+      to: 'gmail',
       subject: 'Sending Email using Node.js username and password',
       text: mailtext
     };

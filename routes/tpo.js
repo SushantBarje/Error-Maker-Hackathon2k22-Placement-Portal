@@ -9,8 +9,8 @@ var auth = require('../middleware/auth');
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'sushantbarje11@gmail.com',
-    pass: 'Sushant@234'
+    user: '*******',
+    pass: '*********'
   }
 });
 
@@ -33,8 +33,8 @@ router.post('/add_student', auth.verify , (req, res) => {
           if (err) throw err;
           var mailtext = 'Username: ' + email + '\n' + 'Password: ' + password;
           var mailOptions = {
-            from: 'sushantbarje11@gmail.com',
-            to: 'sushantbarje11@gmail.com',
+            from: '*****',
+            to: '******',
             subject: 'Sending Email using Node.js username and password',
             text: mailtext
           };
